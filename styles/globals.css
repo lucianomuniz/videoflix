@@ -57,12 +57,12 @@ h3 {
 
 button {
   background-image: none;
-  font-weight: 600;
-  cursor: pointer;
   background-color: transparent;
-  text-transform: none;
-  margin: 0;
   border: 0px;
+  cursor: pointer;
+  font-weight: 600;
+  margin: 0;
+  text-transform: none;
   outline: 0px;
 }
 
