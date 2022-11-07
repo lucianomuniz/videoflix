@@ -2,12 +2,14 @@ import Link from 'next/link';
 import Image from 'next/image';
 import { useRouter } from 'next/router';
 import { useState } from 'react';
+import { logout, isLoggedIn } from '../../lib/magic-client';
 
 import styles from './navbar.module.css';
 
 const NavBar = (props) => {
   const { username } = props;
   const [showDropdown, setShowDropdown] = useState(false);
+
   const router = useRouter();
 
   const handleOnClickHome = (e) => {
@@ -23,6 +25,18 @@ const NavBar = (props) => {
   const handleShowDropdown = (e) => {
     e.preventDefault();
     setShowDropdown(!showDropdown);
+  };
+
+  const handleSignOut = async (e) => {
+    e.preventDefault();
+    try {
+      await logout();
+      console.log('logged?', await isLoggedIn());
+      router.push('/login');
+    } catch (e) {
+      console.log('Error logging out');
+      router.push('/login');
+    }
   };
 
   return (
@@ -64,14 +78,9 @@ const NavBar = (props) => {
             {showDropdown && (
               <div className={styles.navDropdown}>
                 <div>
-                  <Link
-                    className={styles.linkName}
-                    href={'/login'}
-                    passHref
-                    legacyBehavior
-                  >
+                  <a className={styles.linkName} onClick={handleSignOut}>
                     Sign out
-                  </Link>
+                  </a>
                   <div className={styles.lineWrapper}></div>
                 </div>
               </div>
