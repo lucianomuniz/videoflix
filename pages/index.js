@@ -43,7 +43,7 @@ export default function Home(props) {
   return (
     <div className={styles.container}>
       <Head>
-        <title>Neflix</title>
+        <title>Home - Neflix</title>
         <link rel='icon' href='/favicon.ico' />
         <meta
           name='description'
@@ -53,6 +53,7 @@ export default function Home(props) {
       <div className={styles.main}>
         <NavBar username={username} />
         <Banner
+          videoId='4zH5iYM4wJo'
           title='Clifford the red dog'
           subTitle='a very cute dog'
           imgUrl='/static/clifford.webp'
