@@ -59,18 +59,14 @@ const Login = () => {
       </Head>
       <header className={styles.header}>
         <div className={styles.headerWrapper}>
-          <Link className={styles.logoLink} href='/'>
-            <a>
-              <div className={styles.logoWrapper}>
-                <Image
-                  src='/static/netflix.svg'
-                  alt='Netflix logo'
-                  width='128px'
-                  height='34px'
-                />
-              </div>
-            </a>
-          </Link>
+          <div className={styles.logoWrapper}>
+            <Image
+              src='/static/netflix.svg'
+              alt='Netflix logo'
+              width='128px'
+              height='34px'
+            />
+          </div>
         </div>
       </header>
       <main className={styles.main}>
