@@ -6,7 +6,6 @@ import NavBar from '../components/nav/navbar';
 import SectionCards from '../components/card/section-cards';
 import { getVideos, getPopularVideos } from '../lib/videos';
 import { getUserLogin, getIdToken } from '../lib/magic-client';
-import { queryHasuraGQL } from '../lib/db/hasura';
 
 import styles from '../styles/Home.module.css';
 
@@ -32,7 +31,6 @@ export default function Home(props) {
       try {
         const { email } = await getUserLogin();
         const didToken = await getIdToken();
-        console.log({ didToken });
         if (email) {
           setUsername(email);
         }
@@ -42,8 +40,6 @@ export default function Home(props) {
     };
     getUsername();
   }, [username]);
-
-  queryHasuraGQL();
 
   return (
     <div className={styles.container}>
